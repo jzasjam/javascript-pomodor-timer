@@ -3,8 +3,8 @@
   let isBreak = false;
 
   // TODO: replace with user inputted start times
-  let startingWorkSecs = 60*25;
-  let startingBreakSecs = 60*5;
+  let startingWorkSecs = 5;
+  let startingBreakSecs = 3;
 
   let secs = startingWorkSecs;
 
