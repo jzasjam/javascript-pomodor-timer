@@ -44,7 +44,7 @@
       if (isBreak) {
         secs = startingBreakSecs;
         completedTimers += 1;
-        // Store in localstrage Array
+        // Store count in localstorage
         localStorage.setItem('completedTimers', completedTimers);
         document.getElementById("completed-timers").innerText = completedTimers;
       } else {
@@ -76,7 +76,7 @@
     status.innerText = "Paused: " + (isBreak ? "Break" : "Work");
     startButton.removeAttribute("disabled");
     pauseButton.setAttribute("disabled", true);
-    resetButton.setAttribute("disabled", true);
+    //resetButton.setAttribute("disabled", true);
   });
 
  resetButton.addEventListener("click", () => {
@@ -88,6 +88,10 @@
     startButton.removeAttribute("disabled");
     pauseButton.setAttribute("disabled", true);
     resetButton.setAttribute("disabled", true);
+    // Clear local storage and reset completed timers
+    completedTimers = 0;
+    localStorage.setItem('completedTimers', completedTimers);
+    document.getElementById("completed-timers").innerText = completedTimers;
   });
 
   // Update durations
