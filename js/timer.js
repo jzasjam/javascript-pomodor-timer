@@ -1,6 +1,12 @@
 (function() {
   // Setup
+  let status = document.getElementById("status-text");
+  let startButton = document.getElementById("start");
+  let pauseButton = document.getElementById("pause");
+  let resetButton = document.getElementById("reset");
+
   let isBreak = false;
+  let isPaused = true;
 
   // TODO: replace with user inputted start times
   let startingWorkSecs = 5;
@@ -20,6 +26,10 @@
 
   // Decrement
   function countdown() {
+    if (isPaused) {
+      return;
+    }
+
     if (secs != 0) {
       secs -= 1;
     } else {
@@ -33,7 +43,28 @@
     }
 
     setTimer(secs);
+
+    if (!isPaused) {
+      status.innerText = "Active: " + (isBreak ? "Break" : "Work");
+    }
   }
 
   let timer = setInterval(countdown, 1000);
+
+  // Controls
+  startButton.addEventListener("click", () => {
+    isPaused = false;
+    status.innerText = "Active: " + (isBreak ? "Break" : "Work");
+    startButton.setAttribute("disabled", true);
+    pauseButton.removeAttribute("disabled");
+    resetButton.removeAttribute("disabled");
+  });
+
+  pauseButton.addEventListener("click", () => {
+    isPaused = true;
+    status.innerText = "Paused: " + (isBreak ? "Break" : "Work");
+    startButton.removeAttribute("disabled");
+    pauseButton.setAttribute("disabled", true);
+    resetButton.setAttribute("disabled", true);
+  });
 }) ();
