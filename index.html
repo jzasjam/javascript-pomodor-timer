@@ -10,16 +10,29 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/2e9a66e4ea.js" crossorigin="anonymous"></script>
+    <script defer src="js/darkmode.js"></script>
+    <script defer src="js/sounds.js"></script>
 </head>
 <body>
     <div class="container">
-        <h1>Pomodoro Timer</h1>
-        <p>This is a simple Pomodoro timer application.</p>
-        <div id="status">Status: <span id="status-text">Idle</span></div>
+        <div class="headerContainer">
+			<header>
+				<div>
+					<h2>Pomodoro Timer <i id="theme-toggle" class="fa-solid fa-moon"></i></h2>
+				</div>
+			</header>
+		</div>
+
+        <div id="status">
+            <h2>Status:</h2> 
+            <span id="status-text">Waiting...</span>
+        </div>
+
         <div id="timer">25:00</div>
+
         <button id="start"><i class="fa-solid fa-play"></i> Start</button>
-        <button id="pause"><i class="fa-solid fa-pause"></i> Pause</button>
-        <button id="reset"><i class="fa-solid fa-stop"></i> Reset</button>
+        <button id="pause" disabled><i class="fa-solid fa-pause"></i> Pause</button>
+        <button id="reset" disabled><i class="fa-solid fa-stop"></i> Reset</button>
     </div>
 </body>
 </html>

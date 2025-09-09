@@ -1,0 +1,37 @@
+
+nav{
+	/* For mobile toggle */
+	overflow: visible;
+	margin-top:40px;
+	height: 80px;
+}
+nav.desktop {
+	flex: 1 1 auto;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+nav ul {
+	display: flex;
+}
+
+nav ul:first-child {
+	border-top: none;
+}
+
+nav ul li {
+	padding: 4px;
+	border-bottom: none;
+}
+
+nav ul li a {
+	margin: 0 15px 3px 15px; 
+	border: none;
+	padding: 0;
+}
+
+nav ul li a:hover {
+	border-bottom: 3px solid #fff;
+	margin-bottom: 0px;
+}
