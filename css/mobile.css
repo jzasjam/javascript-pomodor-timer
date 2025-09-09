@@ -57,11 +57,11 @@ nav ul li a {
 #timer {
     font-family: "Orbitron", sans-serif;
     font-optical-sizing: auto;
-    font-size:7.5em;
+    font-size:6.5em;
 }
 
 button {
-    font-size: 1.5em;
+    font-size: 1em;
     padding: 0.75em 1em;
     border-radius: 0.3em;
     border: none;

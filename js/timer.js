@@ -9,8 +9,8 @@
   let isPaused = true;
 
   // TODO: replace with user inputted start times
-  let startingWorkSecs = 5;
-  let startingBreakSecs = 3;
+  let startingWorkSecs = document.getElementById("work-duration").value * 60;
+  let startingBreakSecs = document.getElementById("break-duration").value * 60;
 
   let secs = startingWorkSecs;
 
@@ -40,6 +40,7 @@
       } else {
         secs = startingWorkSecs;
       }
+      playAudio()
     }
 
     setTimer(secs);
