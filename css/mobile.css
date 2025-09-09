@@ -112,3 +112,10 @@ body.dark #status {
 #status-text {
     font-size: 1.5em;
 }
+
+
+#settings {
+    display: inline-block;
+    margin: auto;
+    text-align: left;
+}
