@@ -4,4 +4,4 @@ Created By: [Jonathan Zasada-James / jzasjam](https://github.com/jzasjam) & [Eli
 
 For: Sheffield Hallam University - DTSS "DESIGNING AND DEVELOPING SOFTWARE APPLICATIONS" Module Mini-Hackathon
 
-## View at: [jzasjam.github.io/javascript-pomodor-timer/](https://jzasjam.github.io/javascript-pomodor-timer/)
+## View at: [jzasjam.github.io/javascript-pomodoro-timer/](https://jzasjam.github.io/javascript-pomodoro-timer/)
