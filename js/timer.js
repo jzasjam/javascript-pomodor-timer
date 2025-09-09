@@ -1,28 +1,38 @@
 (function() {
   // Setup
-  let timerMins = 25;
-  let timerSecs = 0;
+  let isBreak = false;
 
-  function setTimer(startMins, startSecs) {
-    document.getElementById("timer").innerHTML = startMins + ":" + String(startSecs).padStart(2, "0");
+  // TODO: replace with user inputted start times
+  let startingWorkSecs = 60*25;
+  let startingBreakSecs = 60*5;
+
+  let secs = startingWorkSecs;
+
+  function setTimer(startSecs) {
+    dispMins = Math.floor(startSecs / 60);
+    dispSecs = startSecs % 60;
+
+    document.getElementById("timer").innerHTML = String(dispMins).padStart(2, "0") + ":" + String(dispSecs).padStart(2, "0");
   }
 
-  setTimer(timerMins, timerSecs);
+  setTimer(secs);
 
-  
 
   // Decrement
   function countdown() {
-    if (timerSecs != 0) {
-      timerSecs -= 1;
-    } else if (timerMins != 0) {
-      timerMins -= 1;
-      timerSecs = 59;
+    if (secs != 0) {
+      secs -= 1;
     } else {
-      console.log("Timer finished!");
+      isBreak = !isBreak;
+
+      if (isBreak) {
+        secs = startingBreakSecs;
+      } else {
+        secs = startingWorkSecs;
+      }
     }
 
-    setTimer(timerMins, timerSecs);
+    setTimer(secs);
   }
 
   let timer = setInterval(countdown, 1000);
