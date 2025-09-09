@@ -5,15 +5,21 @@
   let pauseButton = document.getElementById("pause");
   let resetButton = document.getElementById("reset");
 
+  let workDurationInput = document.getElementById("work-duration");
+  let breakDurationInput = document.getElementById("break-duration");
+
   let isBreak = false;
   let isPaused = true;
 
   // TODO: replace with user inputted start times
-  let startingWorkSecs = document.getElementById("work-duration").value * 60;
-  let startingBreakSecs = document.getElementById("break-duration").value * 60;
+  let startingWorkSecs = workDurationInput.value * 60;
+  let startingBreakSecs = breakDurationInput.value * 60;
 
   let secs = startingWorkSecs;
 
+  let completedTimers = localStorage.getItem('completedTimers') ? parseInt(localStorage.getItem('completedTimers')) : 0;
+  document.getElementById("completed-timers").innerText = completedTimers;
+  
   function setTimer(startSecs) {
     dispMins = Math.floor(startSecs / 60);
     dispSecs = startSecs % 60;
@@ -37,6 +43,10 @@
 
       if (isBreak) {
         secs = startingBreakSecs;
+        completedTimers += 1;
+        // Store in localstrage Array
+        localStorage.setItem('completedTimers', completedTimers);
+        document.getElementById("completed-timers").innerText = completedTimers;
       } else {
         secs = startingWorkSecs;
       }
@@ -68,4 +78,27 @@
     pauseButton.setAttribute("disabled", true);
     resetButton.setAttribute("disabled", true);
   });
+
+ resetButton.addEventListener("click", () => {
+    isPaused = true;
+    isBreak = false;
+    secs = startingWorkSecs;
+    setTimer(secs);
+    status.innerText = "Status: Idle";
+    startButton.removeAttribute("disabled");
+    pauseButton.setAttribute("disabled", true);
+    resetButton.setAttribute("disabled", true);
+  });
+
+  // Update durations
+  workDurationInput.addEventListener("change", () => {
+    startingWorkSecs = workDurationInput.value * 60;
+    secs = startingWorkSecs;
+    setTimer(secs);
+  });
+
+  breakDurationInput.addEventListener("change", () => {
+    startingBreakSecs = breakDurationInput.value * 60;
+  });
+
 }) ();
